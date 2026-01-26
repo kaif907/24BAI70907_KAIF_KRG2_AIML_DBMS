@@ -1,0 +1,91 @@
+# Library Management System Database (PostgreSQL)
+
+**Student Name:** Mohd Kaif Malik  
+**UID:** 24BAI70907  
+**Section:** 24AIT-KRG-G2  
+
+## Aim
+To design and implement a Library Management System database using PostgreSQL by creating tables with Primary Keys, Foreign Keys, and constraints, and performing DDL, DML, and DCL operations for data integrity and security.
+
+## Software Requirements
+- DBMS: PostgreSQL  
+- Tool: pgAdmin 4  
+
+## Objective
+To gain hands-on practice of DDL (table creation + constraints), DML (insert, update, delete), and DCL (role creation, granting and revoking privileges) in a real database environment.
+
+## Problem Statement
+A library needs a database system to manage books, members, and issue/return records efficiently. The database must be designed with proper constraints to avoid duplication and maintain accuracy. A secure role named `librarian` should be created and given limited permissions to ensure role-based access control.
+
+## Learning Outcomes
+- Learned to operate pgAdmin 4  
+- Learned to execute SQL queries in PostgreSQL  
+- Learned to create tables and insert data  
+- Implemented role-based security using GRANT and REVOKE  
+
+## Procedure / Steps
+
+### Step 1: Database Setup
+1. Install PostgreSQL and pgAdmin 4  
+2. Open pgAdmin 4 and connect to PostgreSQL server  
+3. Create a database named `LibraryManagement`  
+4. Verify the database is created successfully  
+
+### Step 2: Table Design and Creation
+Create the following tables:
+
+**Books Table**
+- BookID (Primary Key)  
+- Title (NOT NULL)  
+- Author (NOT NULL)  
+- ISBN (UNIQUE)  
+- PublishedYear  
+- Availability (BOOLEAN)  
+
+**Members Table**
+- MemberID (Primary Key)  
+- Name (NOT NULL)  
+- Email (UNIQUE)  
+- PhoneNumber  
+- MembershipDate  
+- Status (Active/Inactive)  
+
+**IssueRecords Table**
+- IssueID (Primary Key)  
+- BookID (Foreign Key -> Books.BookID)  
+- MemberID (Foreign Key -> Members.MemberID)  
+- IssueDate  
+- ReturnDate  
+- ActualReturnDate  
+
+### Step 3: DML Operations
+- INSERT: Added sample records in Books, Members, and IssueRecords  
+- UPDATE: Updated member details and book availability status  
+- DELETE: Removed obsolete/damaged books and inactive members  
+
+### Step 4: DCL Operations (Security)
+
+Create Role:
+CREATE ROLE librarian WITH PASSWORD 'secure_password';
+
+Grant Privileges:
+GRANT SELECT, INSERT, DELETE ON Books TO librarian;
+GRANT SELECT, INSERT, DELETE ON Members TO librarian;
+GRANT SELECT, INSERT, DELETE ON IssueRecords TO librarian;
+
+Revoke Privileges:
+REVOKE DELETE ON Books FROM librarian;
+REVOKE DELETE ON Members FROM librarian;
+REVOKE DELETE ON IssueRecords FROM librarian;
+
+### Step 5: Query Execution and Verification
+- Executed SELECT queries to verify inserted records  
+- Tested INSERT and UPDATE operations  
+- Verified role-based access by switching to librarian role  
+- Checked restricted access after REVOKE commands  
+
+### Step 6: Documentation and Analysis
+- Documented all SQL commands used  
+- Verified data integrity constraints are enforced  
+- Analyzed the effectiveness of role-based access control  
+- Summarized security measures implemented  
