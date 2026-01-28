@@ -4,11 +4,11 @@
     city VARCHAR(30),
     marks NUMERIC(10,0)
 );
-INSERT INTO Students VALUES (1, 'Aman', 'Mohali', 85);
-INSERT INTO Students VALUES (2, 'Rohit', 'Mohali', 78);
-INSERT INTO Students VALUES (3, 'Neha', 'Mohali', 92);
-INSERT INTO Students VALUES (4, 'Simran', 'Amritsar', 88);
-INSERT INTO Students VALUES (5, 'Karan', 'Amritsar', 75);
+INSERT INTO Students VALUES (1, 'King', 'WAKANDA', 75);
+INSERT INTO Students VALUES (2, 'President', 'AMERICA', 71);
+INSERT INTO Students VALUES (3, 'Minister', 'GUJRAT', 99);
+INSERT INTO Students VALUES (4, 'Mayor', 'LONDON', 78);
+INSERT INTO Students VALUES (5, 'Sarpanch', 'DHOLAKPUR', 65);
 ---
 -- COUNT NUMBER OF STUDENT IN EACH CITY
 
