@@ -74,6 +74,63 @@ To show a cleaner output, the average was displayed up to **2 decimal places**.
 7. Find average marks per city using **AVG(marks)** with **GROUP BY city**.
 
 ---
+## CODE
+  CREATE TABLE Students (
+    id NUMERIC PRIMARY KEY,
+    name VARCHAR(50),
+    city VARCHAR(30),
+    marks NUMERIC(10,0)
+);
+INSERT INTO Students VALUES (1, 'Aman', 'Mohali', 85);
+INSERT INTO Students VALUES (2, 'Rohit', 'Mohali', 78);
+INSERT INTO Students VALUES (3, 'Neha', 'Mohali', 92);
+INSERT INTO Students VALUES (4, 'Simran', 'Amritsar', 88);
+INSERT INTO Students VALUES (5, 'Karan', 'Amritsar', 75);
+---
+-- COUNT NUMBER OF STUDENT IN EACH CITY
+
+-- (I)
+SELECT CITY ,COUNT(*) AS COUNT_STUDNETS
+FROM STUDENTS
+GROUP BY CITY
+-- (II)
+
+SELECT CITY ,COUNT(ID) AS COUNT_STUDNETS
+FROM STUDENTS
+GROUP BY CITY
+
+
+--- SORT ON THE BASIS OF COUNT OF STUDENTS IN EACH CITY
+
+-- (I)
+SELECT CITY ,COUNT(ID) AS COUNT_STUDNETS
+FROM STUDENTS
+GROUP BY CITY
+ORDER BY COUNT_STUDNETS ASC
+
+-- (II)
+
+SELECT CITY ,COUNT(*) AS COUNT_STUDNETS
+FROM STUDENTS
+GROUP BY CITY
+ORDER BY COUNT(*) ASC
+
+-- FIND CITIES HAVING COUNT AT LEAST 3
+
+
+SELECT CITY ,COUNT(ID) AS COUNT_STUDNETS
+FROM STUDENTS
+GROUP BY CITY
+HAVING COUNT(ID)>=3
+
+-----
+-- FIND AVERAGE MARKS OF EACH CITY
+
+
+SELECT CITY ,AVG(MARKS)::NUMERIC(10,2) AS AVERAGE_MARKS
+FROM STUDENTS
+GROUP BY CITY
+
 
 # Input / Output
 screenshot: <img width="415" height="244" alt="Screenshot 2026-01-22 at 9 45 38 AM" src="https://github.com/user-attachments/assets/d45244a8-7602-4dd8-8eb8-ea757e47ac0b" />
