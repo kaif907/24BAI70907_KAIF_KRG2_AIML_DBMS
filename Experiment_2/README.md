@@ -76,64 +76,61 @@ To show a cleaner output, the average was displayed up to **2 decimal places**.
 ---
 ## CODE
 
-CREATE TABLE Students (
+  CREATE TABLE Students (
     id NUMERIC PRIMARY KEY,
     name VARCHAR(50),
     city VARCHAR(30),
     marks NUMERIC(10,0)
 );
+INSERT INTO Students VALUES (1, 'King', 'WAKANDA', 75);
+INSERT INTO Students VALUES (2, 'President', 'AMERICA', 71);
+INSERT INTO Students VALUES (3, 'Minister', 'GUJRAT', 99);
+INSERT INTO Students VALUES (4, 'Mayor', 'LONDON', 78);
+INSERT INTO Students VALUES (5, 'Sarpanch', 'DHOLAKPUR', 65);
+---
+-- COUNT NUMBER OF STUDENT IN EACH CITY
 
-INSERT INTO Students VALUES (1, 'Aman', 'Mohali', 85);
+-- (I)
+SELECT CITY ,COUNT(*) AS COUNT_STUDNETS
+FROM STUDENTS
+GROUP BY CITY
+-- (II)
 
-INSERT INTO Students VALUES (2, 'Rohit', 'Mohali', 78);
+SELECT CITY ,COUNT(ID) AS COUNT_STUDNETS
+FROM STUDENTS
+GROUP BY CITY
 
-INSERT INTO Students VALUES (3, 'Neha', 'Mohali', 92);
 
-INSERT INTO Students VALUES (4, 'Simran', 'Amritsar', 88);
+--- SORT ON THE BASIS OF COUNT OF STUDENTS IN EACH CITY
 
-INSERT INTO Students VALUES (5, 'Karan', 'Amritsar', 75);
+-- (I)
+SELECT CITY ,COUNT(ID) AS COUNT_STUDNETS
+FROM STUDENTS
+GROUP BY CITY
+ORDER BY COUNT_STUDNETS ASC
 
-SELECT city, COUNT(*) AS count_students
+-- (II)
 
-FROM Students
+SELECT CITY ,COUNT(*) AS COUNT_STUDNETS
+FROM STUDENTS
+GROUP BY CITY
+ORDER BY COUNT(*) ASC
 
-GROUP BY city;
+-- FIND CITIES HAVING COUNT AT LEAST 3
 
-SELECT city, COUNT(id) AS count_students
 
-FROM Students
+SELECT CITY ,COUNT(ID) AS COUNT_STUDNETS
+FROM STUDENTS
+GROUP BY CITY
+HAVING COUNT(ID)>=3
 
-GROUP BY city;
+-----
+-- FIND AVERAGE MARKS OF EACH CITY
 
-SELECT city, COUNT(id) AS count_students
 
-FROM Students
-
-GROUP BY city
-
-ORDER BY count_students ASC;
-
-SELECT city, COUNT(*) AS count_students
-
-FROM Students
-
-GROUP BY city
-
-ORDER BY COUNT(*) ASC;
-
-SELECT city, COUNT(id) AS count_students
-
-FROM Students
-
-GROUP BY city
-
-HAVING COUNT(id) >= 3;
-
-SELECT city, AVG(marks)::NUMERIC(10,2) AS average_marks
-
-FROM Students
-
-GROUP BY city;
+SELECT CITY ,AVG(MARKS)::NUMERIC(10,2) AS AVERAGE_MARKS
+FROM STUDENTS
+GROUP BY CITY
 
 # Input / Output
 screenshot: <img width="415" height="244" alt="Screenshot 2026-01-22 at 9 45 38 AM" src="https://github.com/user-attachments/assets/d45244a8-7602-4dd8-8eb8-ea757e47ac0b" />
