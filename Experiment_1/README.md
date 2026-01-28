@@ -154,3 +154,12 @@ GRANT SELECT ,INSERT, DELETE,UPDATE ON LIBRARY_VISITOR_USER TO LIBRARIAN_1
 -- HW
 
 REVOKE SELECT ,INSERT, DELETE,UPDATE ON BOOKS FROM LIBRARIAN_1
+
+# Input / Output
+screenshot: <img width="415" height="244" alt="Screenshot 2026-01-22 at 9 45 38 AM" src="<img width="671" height="187" alt="experiment1-sc" src="https://github.com/user-attachments/assets/0b49bcf5-e5c6-456e-9973-9cc6a9d1bbc8" />
+" />
+<img width="1074" height="343" alt="experiment1 sc" src="https://github.com/user-attachments/assets/b2f73dd4-9604-4b76-a6f6-e7ae83988472" />
+<img width="836" height="314" alt="experiment1_sc" src="https://github.com/user-attachments/assets/6a5a4c48-2694-4a45-9d3a-6b60a1eb0856" />
+
+
+
