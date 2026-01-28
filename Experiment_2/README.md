@@ -84,36 +84,55 @@ CREATE TABLE Students (
 );
 
 INSERT INTO Students VALUES (1, 'Aman', 'Mohali', 85);
+
 INSERT INTO Students VALUES (2, 'Rohit', 'Mohali', 78);
+
 INSERT INTO Students VALUES (3, 'Neha', 'Mohali', 92);
+
 INSERT INTO Students VALUES (4, 'Simran', 'Amritsar', 88);
+
 INSERT INTO Students VALUES (5, 'Karan', 'Amritsar', 75);
 
 SELECT city, COUNT(*) AS count_students
+
 FROM Students
+
 GROUP BY city;
 
 SELECT city, COUNT(id) AS count_students
+
 FROM Students
+
 GROUP BY city;
 
 SELECT city, COUNT(id) AS count_students
+
 FROM Students
+
 GROUP BY city
+
 ORDER BY count_students ASC;
 
 SELECT city, COUNT(*) AS count_students
+
 FROM Students
+
 GROUP BY city
+
 ORDER BY COUNT(*) ASC;
 
 SELECT city, COUNT(id) AS count_students
+
 FROM Students
+
 GROUP BY city
+
 HAVING COUNT(id) >= 3;
 
 SELECT city, AVG(marks)::NUMERIC(10,2) AS average_marks
+
 FROM Students
+
 GROUP BY city;
 
 # Input / Output
