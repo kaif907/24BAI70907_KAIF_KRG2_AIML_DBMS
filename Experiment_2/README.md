@@ -1,171 +1,121 @@
-# AIM
-To study and perform SQL **SELECT** operations using clauses like **WHERE, ORDER BY, GROUP BY, and HAVING**, and to analyze table data using aggregate functions.
+# Experiment 2 – SQL SELECT Queries with WHERE, GROUP BY, HAVING, ORDER BY
+
+## Experiment
+Experiment 2: Understanding and implementing SQL SELECT queries using WHERE, ORDER BY, GROUP BY, and HAVING clauses to retrieve and manipulate data efficiently from relational database tables.
+
+## Aim
+The aim of this experiment is to practice writing SQL SELECT statements with filtering, grouping, sorting, and aggregate functions to analyze data from relational tables.
+
+## Objective
+- To practice writing SQL SELECT statements.
+- To apply filtering conditions using the WHERE clause.
+- To sort query results using the ORDER BY clause.
+- To group records using the GROUP BY clause.
+- To filter grouped data using the HAVING clause.
+- To analyze data using aggregate functions like COUNT(), SUM(), AVG(), MIN(), and MAX().
+
+## Software Requirements
+Database: Oracle XE or PostgreSQL (PgAdmin)
+
+## Practical / Experiment Steps
+1. Display the department name and the average salary of employees for each department.
+2. Consider only those employees whose salary is greater than 20,000.
+3. Display only those departments where the average salary is greater than 30,000.
+4. Arrange the final output in descending order of average salary.
+
+## Procedure of the Experiment
+1. Start the system and log in to the computer.
+2. Open the required database tool (Oracle XE or PgAdmin).
+3. Connect to the database containing the EMPLOYEE table.
+4. Examine the EMPLOYEE table structure and data.
+5. Write the SQL SELECT query using WHERE, GROUP BY, HAVING, and ORDER BY clauses according to the practical steps.
+6. Execute the query and verify the output.
+7. Note down the results obtained.
+8. Save the work and take screenshots for record.
+
+## Input / Output Details
+
+### Input
+EMPLOYEE table containing columns:
+- emp_id
+- emp_name
+- department
+- salary
+- joining_date
+
+SQL SELECT queries using WHERE, GROUP BY, HAVING, ORDER BY, and aggregate functions.
+
+### Output
+Departments and their average salary for employees with salary > 20,000 and average salary > 30,000.  
+Output arranged in descending order of average salary.  
+Screenshots of query execution and results are attached in the repository.
 
 ---
 
-# Software Requirements
+# SQL Source Code
 
-## Database System
-- PostgreSQL
-
-## Tool Used
-- pgAdmin
-
----
-
-# Objective
-- To write and execute different **SELECT** queries.
-- To apply conditions using the **WHERE** clause.
-- To arrange query output using **ORDER BY**.
-- To group data city-wise using **GROUP BY**.
-- To filter grouped results using **HAVING**.
-- To use aggregate functions such as **COUNT(), SUM(), AVG(), MIN(), MAX()** for analysis.
-
----
-
-# Implementation / Work Performed
-
-## 1) Table Creation
-A table named **Students** was created to store basic student details.
-
-It includes:
-- **id** → unique student number (**Primary Key**)
-- **name** → student name
-- **city** → student’s city
-- **marks** → marks scored
-
-## 2) Inserting Records
-Multiple entries were added into the **Students** table with values for **id, name, city, and marks**.
-
-## 3) Counting Students City-wise
-To find how many students belong to each city:
-- **COUNT(*)** was used to count total records  
-- **COUNT(id)** was also tested (same output here since **id** is always filled)
-
-Grouping was done using:
-- **GROUP BY city**
-
-## 4) Sorting the Result
-The city-wise student count was arranged based on number of students.  
-For sorting, the query used:
-- **ORDER BY** (ascending order)
-
-## 5) Selecting Cities with Minimum 3 Students
-To display only those cities where student count is **3 or more**, filtering was done using:
-- **HAVING COUNT(*) >= 3**
-
-(Used **HAVING** because the condition is applied after grouping.)
-
-## 6) Average Marks by City
-The average marks of students from each city were calculated using:
-- **AVG(marks)**
-
-To show a cleaner output, the average was displayed up to **2 decimal places**.
-
----
-
-# Procedure (Step-by-Step)
-1. Open **pgAdmin** and connect to the PostgreSQL database.
-2. Create a table **Students** with columns: `id, name, city, marks` and set `id` as **Primary Key**.
-3. Insert student data into the table using **INSERT** statements.
-4. Run a query to get total students per city using **COUNT()** and **GROUP BY city**.
-5. Sort the city-wise count result using **ORDER BY**.
-6. Use **HAVING** to display only cities with at least **3 students**.
-7. Find average marks per city using **AVG(marks)** with **GROUP BY city**.
-
----
-## CODE
-
-CREATE TABLE Students (
-
-    id NUMERIC PRIMARY KEY,
-    
-    name VARCHAR(50),
-    
-    city VARCHAR(30),
-    
-    marks NUMERIC(10,0)
-    
+## CREATING TABLE
+```sql
+CREATE TABLE EMPLOYEE (
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(50),
+    department VARCHAR(50),
+    salary INT,
+    joining_date DATE
 );
+```
 
-INSERT INTO Students VALUES (1, 'King', 'WAKANDA', 75);
+## INSERT DATA
+```sql
+INSERT INTO EMPLOYEE VALUES (1, 'Amit', 'HR', 25000, '2023-01-10');
+INSERT INTO EMPLOYEE VALUES (2, 'Sara', 'HR', 32000, '2022-03-11');
+INSERT INTO EMPLOYEE VALUES (3, 'John', 'IT', 45000, '2021-07-15');
+INSERT INTO EMPLOYEE VALUES (4, 'Riya', 'IT', 28000, '2022-10-21');
+INSERT INTO EMPLOYEE VALUES (5, 'Raj', 'Sales', 35000, '2023-05-05');
+INSERT INTO EMPLOYEE VALUES (6, 'Neha', 'Sales', 18000, '2024-02-01');
+```
 
-INSERT INTO Students VALUES (2, 'President', 'AMERICA', 71);
+## Average salary of employees for each department
+```sql
+SELECT department, AVG(salary) AS avg_salary
+FROM EMPLOYEE
+GROUP BY department;
+```
 
-INSERT INTO Students VALUES (3, 'Minister', 'GUJRAT', 99);
+## Consider only employees with salary > 20000
+```sql
+SELECT department, AVG(salary) AS avg_salary
+FROM EMPLOYEE
+WHERE salary > 20000
+GROUP BY department;
+```
 
-INSERT INTO Students VALUES (4, 'Mayor', 'LONDON', 78);
+## Departments where avg salary > 30000
+```sql
+SELECT department, AVG(salary) AS avg_salary
+FROM EMPLOYEE
+WHERE salary > 20000
+GROUP BY department
+HAVING AVG(salary) > 30000;
+```
 
-INSERT INTO Students VALUES (5, 'Sarpanch', 'DHOLAKPUR', 65);
-
----
--- COUNT NUMBER OF STUDENT IN EACH CITY
-
--- (I)
-SELECT CITY ,COUNT(*) AS COUNT_STUDENTS
-
-FROM STUDENTS
-
-GROUP BY CITY
--- (II)
-
-SELECT CITY ,COUNT(ID) AS COUNT_STUDENTS
-
-FROM STUDENTS
-
-GROUP BY CITY
-
-
---- SORT ON THE BASIS OF COUNT OF STUDENTS IN EACH CITY
-
--- (I)
-SELECT CITY ,COUNT(ID) AS COUNT_STUDENTS
-
-FROM STUDENTS
-
-GROUP BY CITY
-
-ORDER BY COUNT_STUDENTS ASC
-
--- (II)
-
-SELECT CITY ,COUNT(*) AS COUNT_STUDENTS
-
-FROM STUDENTS
-
-GROUP BY CITY
-
-ORDER BY COUNT(*) ASC
-
--- FIND CITIES HAVING COUNT AT LEAST 3
-
-
-SELECT CITY ,COUNT(ID) AS COUNT_STUDENTS
-
-FROM STUDENTS
-
-GROUP BY CITY
-
-HAVING COUNT(ID)>=3
-
------
--- FIND AVERAGE MARKS OF EACH CITY
-
-
-SELECT CITY ,AVG(MARKS)::NUMERIC(10,2) AS AVERAGE_MARKS
-
-FROM STUDENTS
-
-GROUP BY CITY
-
-# Input / Output
-screenshot: <img width="415" height="244" alt="Screenshot 2026-01-22 at 9 45 38 AM" src="https://github.com/user-attachments/assets/d45244a8-7602-4dd8-8eb8-ea757e47ac0b" />
-
+## Final output in descending order of average salary
+```sql
+SELECT department, AVG(salary) AS avg_salary
+FROM EMPLOYEE
+WHERE salary > 20000
+GROUP BY department
+HAVING AVG(salary) > 30000
+ORDER BY avg_salary DESC;
+```
 
 ---
 
-# Learning Outcomes
-- Understood how to filter rows using the **WHERE** clause.
-- Learned to group records and apply aggregate functions using **GROUP BY**.
-- Understood the difference between **WHERE vs HAVING** for filtering.
-- Learned how to sort query output properly using **ORDER BY**.
+## Learning Outcome
+After completing this experiment, the student will be able to:
+
+- Filter records using the WHERE clause.
+- Group records using GROUP BY.
+- Apply conditions on grouped data using HAVING.
+- Sort query results using ORDER BY.
+- Analyze data using aggregate functions for meaningful insights.
