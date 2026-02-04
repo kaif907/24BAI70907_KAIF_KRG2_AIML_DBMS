@@ -1,48 +1,57 @@
+-- =====================================
 -- Problem Statement 1
+-- =====================================
+DO $$
 DECLARE
-    num NUMBER := 5;
+    num INTEGER := 5;
 BEGIN
     IF num > 0 THEN
-        DBMS_OUTPUT.PUT_LINE('The number is positive.');
+        RAISE NOTICE 'The number is positive.';
     ELSE
-        DBMS_OUTPUT.PUT_LINE('The number is non-positive.');
+        RAISE NOTICE 'The number is non-positive.';
     END IF;
-END;
+END $$;
 
 
+
+-- =====================================
 -- Problem Statement 2
+-- =====================================
+DO $$
 DECLARE
-    marks NUMBER := 78;
+    marks INTEGER := 78;
 BEGIN
     IF marks >= 90 THEN
-        DBMS_OUTPUT.PUT_LINE('Grade: A');
+        RAISE NOTICE 'Grade: A';
     ELSIF marks >= 75 THEN
-        DBMS_OUTPUT.PUT_LINE('Grade: B');
+        RAISE NOTICE 'Grade: B';
     ELSIF marks >= 60 THEN
-        DBMS_OUTPUT.PUT_LINE('Grade: C');
+        RAISE NOTICE 'Grade: C';
     ELSIF marks >= 40 THEN
-        DBMS_OUTPUT.PUT_LINE('Grade: D');
+        RAISE NOTICE 'Grade: D';
     ELSE
-        DBMS_OUTPUT.PUT_LINE('Grade: F (Fail)');
+        RAISE NOTICE 'Grade: F (Fail)';
     END IF;
-END;
+END $$;
 
 
+
+-- =====================================
 -- Problem Statement 3
+-- =====================================
+DO $$
 DECLARE
-    marks NUMBER := 78;
+    marks INTEGER := 78;
 BEGIN
     IF marks >= 90 THEN
-        DBMS_OUTPUT.PUT_LINE('Performance: Outstanding');
+        RAISE NOTICE 'Performance: Outstanding';
     ELSIF marks >= 75 THEN
-        DBMS_OUTPUT.PUT_LINE('Performance: Very Good');
+        RAISE NOTICE 'Performance: Very Good';
     ELSIF marks >= 60 THEN
-        DBMS_OUTPUT.PUT_LINE('Performance: Good');
+        RAISE NOTICE 'Performance: Good';
     ELSIF marks >= 40 THEN
-        DBMS_OUTPUT.PUT_LINE('Performance: Average');
+        RAISE NOTICE 'Performance: Average';
     ELSE
-        DBMS_OUTPUT.PUT_LINE('Performance: Poor');
+        RAISE NOTICE 'Performance: Poor';
     END IF;
-END;
-
--- Problem Statement 4
+END $$;
