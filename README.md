@@ -1,75 +1,114 @@
-Experiment
+# 🧪 Experiment 3 – Basic Structure of PL/SQL
 
-Experiment 3: To understand the basic structure of a PL/SQL
-
-Aim
-
+## 📌 Aim
 To understand the basic structure of a PL/SQL program by creating and executing a simple PL/SQL block that includes declaration and execution sections, and to display output using built-in procedures.
 
-Objective
+---
 
-To create a simple PL/SQL program demonstrating:
-Declaration Section (DECLARE)
-Execution Section (BEGIN … END)
-Output using DBMS_OUTPUT.PUT_LINE
-Software Requirements
+## 🎯 Objectives
+- Understand PL/SQL block structure
+- Use the `DECLARE` section
+- Use the `BEGIN ... END` execution block
+- Print output using `DBMS_OUTPUT.PUT_LINE`
 
-Database: Oracle XE or PostgreSQL (PgAdmin)
-Practical / Experiment Steps
+---
 
-Open pgAdmin / SQL environment (conceptual PL/SQL execution).
-Enable server output:
+## ⚙️ Software Requirements
+- Oracle XE / PostgreSQL
+- SQL Developer / pgAdmin / SQL*Plus
+
+---
+
+## ▶️ Steps to Perform
+
+1. Open SQL environment (pgAdmin / SQL Developer)
+2. Enable server output
+3. Write PL/SQL block
+4. Declare variables
+5. Assign values
+6. Print using DBMS_OUTPUT
+7. Execute the block
+
+Enable output:
+
+```sql
 SET SERVER OUTPUT ON;
-Write a PL/SQL block with:
-Employee ID
-Employee Name
-Employee Salary
-Assign values inside the execution section.
-Display output using DBMS_OUTPUT.PUT_LINE.
-Execute the block and observe the output.
-Theory of the Experiment
+```
 
-A PL/SQL block consists of three main sections:
-Declaration Section (DECLARE)
+---
 
-Variables, constants, cursors are declared here.
+## 🧠 PL/SQL Block Structure
 
-Execution Section (BEGIN … END)
+```text
+DECLARE   → Variable declarations
+BEGIN     → Executable statements
+EXCEPTION → Error handling (optional)
+END       → Block termination
+```
 
-Contains executable statements.
+---
 
-Exception Section (EXCEPTION) (optional)
+## 💻 Program Code
 
-Think of it like a human:
+```sql
+SET SERVER OUTPUT ON;
 
-DECLARE → Memory
-BEGIN → Action
-END → Closure
-Input / Output Details
+DECLARE
+    emp_id NUMBER := 101;
+    emp_name VARCHAR2(50) := 'DR DOOM';
+    emp_salary NUMBER := 45000;
 
-Input
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('Employee ID : ' || emp_id);
+    DBMS_OUTPUT.PUT_LINE('Employee Name : ' || emp_name);
+    DBMS_OUTPUT.PUT_LINE('Employee Salary : ' || emp_salary);
+END;
+/
+```
 
-Variable	Value
-emp_id	101
-emp_name	Rahul Sharma
-emp_salary	45000
-Output
+---
 
-Employee ID : 101
-Employee Name : DR DOOM
-Employee Salary : 45000
+## 🔢 Input
 
-OUTPUT
+| Variable   | Value         |
+|-----------|--------------|
+| emp_id    | 101          |
+| emp_name  | DR DOOM |
+| emp_salary| 45000        |
 
-<img width="505" height="177" alt="Screenshot 2026-02-04 at 3 09 20 PM" src="https://github.com/user-attachments/assets/9a2825cf-006f-4c0f-8be6-70251923f978" />
+---
+
+## 📤 Output
+
+<img width="505" height="177" alt="Screenshot 2026-02-04 at 3 09 20 PM" src="https://github.com/user-attachments/assets/60d5b620-04cf-4158-9bdb-85c24eb680ce" />
 
 
-Learning Outcome
+## 📖 Theory
 
-After completing this experiment, the student will be able to:
+A PL/SQL block consists of three main parts:
 
-Understand the basic structure of a PL/SQL block
-Declare and initialize variables in PL/SQL
-Use the BEGIN–END execution block
-Display output using DBMS_OUTPUT.PUT_LINE
-Develop confidence in writing simple procedural database programs
+### 1. DECLARE
+Used to define variables, constants, and cursors.
+
+### 2. BEGIN – END
+Contains executable statements that perform actions.
+
+### 3. EXCEPTION (Optional)
+Handles runtime errors.
+
+---
+
+## 🎓 Learning Outcomes
+
+After completing this experiment, you will be able to:
+
+- Declare variables in PL/SQL
+- Write and execute PL/SQL blocks
+- Use BEGIN–END structure
+- Display output using DBMS_OUTPUT
+- Develop simple procedural database programs
+
+---
+
+## ✅ Conclusion
+This experiment demonstrates the fundamental structure of a PL/SQL block and helps build the foundation for writing procedural programs inside the database.
