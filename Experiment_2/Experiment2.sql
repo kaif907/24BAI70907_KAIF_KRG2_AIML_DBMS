@@ -1,55 +1,45 @@
-  CREATE TABLE Students (
-    id NUMERIC PRIMARY KEY,
-    name VARCHAR(50),
-    city VARCHAR(30),
-    marks NUMERIC(10,0)
+CREATE TABLE employee (
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(50),
+    department VARCHAR(50),
+    salary INT,
+    joining_date DATE
 );
-INSERT INTO Students VALUES (1, 'King', 'WAKANDA', 75);
-INSERT INTO Students VALUES (2, 'President', 'AMERICA', 71);
-INSERT INTO Students VALUES (3, 'Minister', 'GUJRAT', 99);
-INSERT INTO Students VALUES (4, 'Mayor', 'LONDON', 78);
-INSERT INTO Students VALUES (5, 'Sarpanch', 'DHOLAKPUR', 65);
----
--- COUNT NUMBER OF STUDENT IN EACH CITY
 
--- (I)
-SELECT CITY ,COUNT(*) AS COUNT_STUDENTS
-FROM STUDENTS
-GROUP BY CITY
--- (II)
+INSERT INTO employee VALUES
+(1, 'Kaif',   'HR',        25000, '2022-01-15'),
+(2, 'Neha',   'HR',        35000, '2021-03-10'),
+(3, 'Vinay',  'IT',        45000, '2020-07-22'),
+(4, 'Meehul',  'IT',        55000, '2019-11-05'),
+(5, 'Debyindu',  'Finance',  18000, '2023-02-01'),
+(6, 'Tejas',  'Finance',  42000, '2021-06-18'),
+(7, 'Mudasar',  'Sales',    30000, '2020-09-12'),
+(8, 'Sohail', 'Sales',    48000, '2018-04-25');
 
-SELECT CITY ,COUNT(ID) AS COUNT_STUDENTS
-FROM STUDENTS
-GROUP BY CITY
+SELECT * FROM employee;
 
+SELECT department,AVG(salary) AS avg_salary
+FROM employee
+GROUP BY department;
 
---- SORT ON THE BASIS OF COUNT OF STUDENTS IN EACH CITY
+SELECT department,AVG(salary) AS avg_salary
+FROM employee
+GROUP BY department;
 
--- (I)
-SELECT CITY ,COUNT(ID) AS COUNT_STUDENTS
-FROM STUDENTS
-GROUP BY CITY
-ORDER BY COUNT_STUDENTS ASC
+SELECT department,AVG(salary) AS avg_salary
+FROM employee
+WHERE salary > 20000
+GROUP BY department;
 
--- (II)
+SELECT department,AVG(salary) AS avg_salary
+FROM employee
+WHERE salary > 20000
+GROUP BY department
+HAVING AVG(salary) > 30000;
 
-SELECT CITY ,COUNT(*) AS COUNT_STUDENTS
-FROM STUDENTS
-GROUP BY CITY
-ORDER BY COUNT(*) ASC
-
--- FIND CITIES HAVING COUNT AT LEAST 3
-
-
-SELECT CITY ,COUNT(ID) AS COUNT_STUDENTS
-FROM STUDENTS
-GROUP BY CITY
-HAVING COUNT(ID)>=3
-
------
--- FIND AVERAGE MARKS OF EACH CITY
-
-
-SELECT CITY ,AVG(MARKS)::NUMERIC(10,2) AS AVERAGE_MARKS
-FROM STUDENTS
-GROUP BY CITY
+SELECT department,AVG(salary) AS avg_salary
+FROM employee
+WHERE salary > 20000
+GROUP BY department
+HAVING AVG(salary) > 30000
+ORDER BY avg_salary DESC;
