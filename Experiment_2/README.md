@@ -67,12 +67,14 @@ CREATE TABLE EMPLOYEE (
 
 ## INSERT DATA
 ```sql
-INSERT INTO EMPLOYEE VALUES (1, 'Amit', 'HR', 25000, '2023-01-10');
-INSERT INTO EMPLOYEE VALUES (2, 'Sara', 'HR', 32000, '2022-03-11');
-INSERT INTO EMPLOYEE VALUES (3, 'John', 'IT', 45000, '2021-07-15');
-INSERT INTO EMPLOYEE VALUES (4, 'Riya', 'IT', 28000, '2022-10-21');
-INSERT INTO EMPLOYEE VALUES (5, 'Raj', 'Sales', 35000, '2023-05-05');
-INSERT INTO EMPLOYEE VALUES (6, 'Neha', 'Sales', 18000, '2024-02-01');
+(1, 'Kaif',   'HR',        25000, '2022-01-15'),
+(2, 'Neha',   'HR',        35000, '2021-03-10'),
+(3, 'Vinay',  'IT',        45000, '2020-07-22'),
+(4, 'Meehul',  'IT',        55000, '2019-11-05'),
+(5, 'Debyindu',  'Finance',  18000, '2023-02-01'),
+(6, 'Tejas',  'Finance',  42000, '2021-06-18'),
+(7, 'Mudasar',  'Sales',    30000, '2020-09-12'),
+(8, 'Sohail', 'Sales',    48000, '2018-04-25');
 ```
 
 ## Average salary of employees for each department
