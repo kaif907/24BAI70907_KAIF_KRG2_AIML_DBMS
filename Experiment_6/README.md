@@ -25,9 +25,6 @@ To understand the concept of **cursors in PL/SQL** and implement **implicit and 
 
 # Software Requirements
 
-## Database Management System
-- Oracle Database Express Edition (**Oracle XE**)
-
 ## Database Administration Tool
 - **MY SQL Developer**
 
@@ -149,8 +146,8 @@ DESCRIBE EMPLOYEE;
 
 # Procedure
 
-1. Open **Oracle SQL Developer**.
-2. Connect to the **Oracle database**.
+1. Open **MY SQL Developer**.
+2. Connect to the **MYSQL database**.
 3. Create the **employee table**.
 4. Insert sample employee records.
 5. Execute the **implicit cursor PL/SQL block**.
