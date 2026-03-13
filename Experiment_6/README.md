@@ -29,7 +29,7 @@ To understand the concept of **cursors in PL/SQL** and implement **implicit and 
 - Oracle Database Express Edition (**Oracle XE**)
 
 ## Database Administration Tool
-- **Oracle SQL Developer**
+- **MY SQL Developer**
 
 ---
 
